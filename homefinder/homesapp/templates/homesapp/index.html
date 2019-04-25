@@ -1,0 +1,68 @@
+{% extends 'homesapp/base.html' %}
+<html>
+<head>
+</head>
+{% block body %}
+<style>
+    .p1
+    {
+
+        font-family:"Comic Sans MS", cursive, sans-serif;
+        margin:0 auto;
+        margin-left:250px;
+        quotes:"\201C""\201D""\2018""\2019";
+          padding: 10px 20px;
+          line-height: 1.4;
+     }
+     .p1:before {
+  content: open-quote;
+  display: inline;
+  height: 0;
+  line-height: 0;
+  left: -3px;
+  position: relative;
+  top: 12px;
+  color: black;
+  font-size: 2em;
+}
+.p1::after {
+  content: close-quote;
+  display: inline;
+  height: 0;
+  line-height: 1;
+  left: 1px;
+  position: relative;
+  top: 12px;
+  color: black;
+  font-size: 2em;
+}
+
+
+</style>
+<body style="background-color:skyblue;" >
+
+<div class="container">
+    <div class="container">
+        <div class="jumbotron" style="background-color: #b2004c;">
+            <h1 style=" text-shadow: 2px 2px 5px white;"><center>PROPERTY ARENA </center></h1>
+            <p style="font-size:20px;color:black;" class="p1"><i>With us, it's not just a house, you find a Home.</i> </p>
+        </div>
+    </div>
+   <center> <h1 style="font-family:Comic Sans MS;font-size:25px; margin:7px;margin-top:-10px;"> SELECT YOUR LOCATION </h1></center>
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">Locations</div>
+
+        {% for location in object_list %}
+       <div class="panel-body " style="display:inline-block;"> <a href="/homesapp/{{location.id}}">{{location.location_name}}</a><br>
+
+
+       </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+</body>
+{% endblock %}
+</html>
+
